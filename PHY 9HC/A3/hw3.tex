@@ -1,0 +1,165 @@
+% A useful template for typesetting beautiful homework solutions. 
+% Also check out Professor Matloff's guide: 
+% http://heather.cs.ucdavis.edu/~matloff/LaTeX/HowToCreate.html.
+\documentclass{article}
+
+% Packages Used
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{comment}  % Used for multi-line commenting
+\usepackage{booktabs} % For better looking tables
+\usepackage{array}       % for better arrays (eg matrices) in maths
+\usepackage{paralist}    % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim}  % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig}      % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsthm}   % make proofs look better
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{eufrak}      % for fraktur fonts
+\usepackage{mathabx}  % for \divides
+\usepackage{enumerate} % to get lists enumerated with letters
+\usepackage{hyperref}  % to get attractive URLs
+\usepackage{bussproofs} % for setting proofs
+\usepackage{etoolbox}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tikz}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+% For theorem enviornment
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}
+
+\newtheorem{mathrule}{Rule}
+\newtheorem{case}{Case}
+\newtheorem{subcase}{Case}[case]
+
+\theoremstyle{plain}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}[section]
+
+% For improved end of proof formatting
+\patchcmd{\endproof}  % <cmd>
+  {\endtrivlist}               % <search>
+  {\endtrivlist\par\nobreak\vspace*{\dimexpr-\baselineskip-\parskip}\nobreak\noindent\hrulefill}% <replace>
+  {}{}                            % <succes><failure>
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{PHY 9HC Spring 2016\\ UC Davis - Emilija Pantic} % Top left header
+\chead{} % Top center header
+\rhead{\firstxmark Anze Wang ID: 912777492\\PHY 9HC A02} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+
+\setlength\parindent{10pt} % Removes all indentation from paragraphs
+
+% Common boolean operators.
+\newcommand*\AND{\wedge}
+\newcommand*\OR{\vee}
+\newcommand*\NOT{\neg}
+\newcommand*\IMPLIES{\implies}
+\newcommand*\XOR{\mathbin{\oplus}}
+
+
+\begin{document}
+
+\begin{center} \bf \LARGE Homework 3\\
+\end{center}
+
+
+\begin {enumerate}[itemindent=30pt,label=\bf Exercise {\arabic*}:]
+
+\item Q4M.5\\
+\subitem $I = \dfrac{P}{4\pi r^{2}}$
+\subitem $\dfrac{photons}{s} = \dfrac{P_{sheet}}{E_{ph}} = \dfrac{IA}{hc/\lambda}= \dfrac{\lambda A}{hc} \dfrac{P}{4 \pi r^{2}}$
+\subitem \qquad \qquad $= \dfrac{590 nm * (8 mm)^{2} pi * 20W}{6.626*10^-34 j*s * 3 * 10^8 m/s *4 *pi * (100 m)^2}$
+\subitem \qquad \qquad $= 9.5*10^{10}\;\;photon/s$
+
+\item Q4M.8\\
+\subitem
+\begin{tabular}{| c | c | c |}
+	\hline
+	pure wave & EEV & observe\\
+	\hline
+	$I_{e} \propto I$ & if $k \lambda^{3} > W, I_{e} \propto I$ & if $f > f_{s},I_{e} \propto I$\\
+	\hline
+	$t \approx \dfrac{w}{Id^{2}}$ & instantly & instantly \\
+	\hline
+	resonance  & $k\lambda^3 < W, I_{e} = 0$ & if $f < fc, I_{e} = 0$\\
+	\hline
+	$max(KE) \propto I$ &\tabincell{c}{max(KE) is independent \\of intensity} & \tabincell{c}{max(KE) is independent \\of intensity} \\
+	\hline
+	max(KE) may depend on frequency & if $k\lambda^3 > W, max(KE) \propto \lambda^{3}$ & \tabincell{c}{if frequency $>$ cutoff frequency,\\ $max(KE) \propto f$}\\
+	\hline
+\end{tabular}
+
+\subitem If we discuss the EEV model qualitatively, it is similar with the observe result. However, if we want to discuss this model qualitatively, the result will be different because the energy function is different.
+\item Q4R.2\\
+\subitem assume that the wave length of light is 590 nm
+\subitem 6 megapixel needs $3*6*10^{6} = 1.8*10^{7}$ photon
+\subitem exposure time = 5s
+\subitem $\therefore 1.8*10^{7} / 5 = 3.6 * 10^{6}$ photon/s
+\subitem $photon/s = \dfrac{P_{sheet}}{E_{ph}} = \dfrac{IA}{hc/\lambda}$
+\subitem $I = \dfrac{photon/s  \cdot hc} {\lambda A}$
+\subitem $=1.54*10^{-10} W/m^{2}$
+\subitem $0.5 / 1.54*10^{-10} = 3.23*10^{9}$
+\subitem $0.5 W/m^{2}$ is much larger that the minimum average intensity of light
+\item Q5M.5\\
+\subitem $\lambda = \dfrac{hc}{\sqrt{2kmc^2}} = \dfrac{1240 eV \cdot nm}{2 \cdot 100 eV \cdot 511000eV} = 0.0388 nm$
+\subitem width = $ D2sin^{-1}(\dfrac{\lambda}{a}) = 10 \cdot 2 \cdot \dfrac{0.0388\;nm}{1\;\mu m} = 7.76*10^-4$ m
+\subitem The width is $7.76*10^{-4}$ m
+\item Q5M.12\\
+\subitem (a)
+\subitem \qquad$\lambda = \dfrac{hc}{K(K + 2mc^{2})} = \dfrac{1240 ev}{20 GeV(20 GeV +2 \cdot 511000 eV)} = 6.2*10^{-8}$ 
+\subitem (b)
+\subitem \qquad $\dfrac{10^{15}}{6.2*10^{-8}} = 1.613*10^{22}$
+\subitem \qquad the wavelength of electrons is much smaller than the wavelength of the nucleus.
+\subitem (c)
+\subitem \qquad $mc^{2} = 511000 eV$
+\subitem \qquad $K = 2.0 * 10^{10} eV$
+\subitem \qquad Because K is much larger than $mc^{2}$, $mc^{2}$ can be neglected. So it does matter whether 20 GeV is the total energy or the relativistic kinetic energy. 
+\item Q5R.1\\
+\begin{figure}[h]
+	\begin{tikzpicture}[scale=1.5]
+    		\draw (0.7,-0.8) -- (0.7,1.1);
+        \draw (0.7,1.2) -- (0.7, 1.8);
+        \draw (0.7,1.9) -- (0.7,3.8);
+		\draw (5.7, -0.8) -- (5.7, 3.8);
+        \draw (0.7, 1.5) -- (5.7, 3.3);
+        \draw[color = red] (0.7, 1.5) -- (5.7, 1.5);
+		\draw (1.2,1.5) arc(0:20:0.5);
+        \node at (0.5, 1.5) {3m};
+        \node at (1.3, 1.6) {$\theta$};
+        \node [right, text width = 10cm, align = justify] at (6,1.5) {
+         	$p = mv = 0.5kg * 6 m / s = 3 kg \cdot m /s$\\
+			$\lambda = \dfrac{h}{p} = \dfrac{1}{3}\;m$\\
+			$d\;sin\theta = \dfrac{1}{2}n\lambda$\\
+			$sin\theta = \dfrac{n\lambda}{2d} = \dfrac{n}{18}$, \;\;\;$n = 2k + 1, k \in \mathbb{Z}^{+}$ 
+       
+        };
+	\end{tikzpicture}
+\end{figure}
+\end{enumerate}
+\end{document}
+ 

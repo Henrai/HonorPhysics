@@ -1,0 +1,246 @@
+% A useful template for typesetting beautiful homework solutions. 
+% Also check out Professor Matloff's guide: 
+% http://heather.cs.ucdavis.edu/~matloff/LaTeX/HowToCreate.html.
+\documentclass{article}
+
+% Packages Used
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{comment}  % Used for multi-line commenting
+\usepackage{booktabs} % For better looking tables
+\usepackage{array}       % for better arrays (eg matrices) in maths
+\usepackage{paralist}    % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim}  % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig}      % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsthm}   % make proofs look better
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{eufrak}      % for fraktur fonts
+\usepackage{mathabx}  % for \divides
+\usepackage{enumerate} % to get lists enumerated with letters
+\usepackage{hyperref}  % to get attractive URLs
+\usepackage{bussproofs} % for setting proofs
+\usepackage{etoolbox}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{braket}
+\newcommand{\Intvalx}[2]{\mspace{-1mu}\left.\rule[0pt]{0pt}{\IntHtx}\right|_{\,#1}^{\,#2}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\providecommand{\bigp}[1]{\bigg( #1 \bigg)}
+\providecommand{\Matrix}[1] {\begin{bmatrix} #1 \end{bmatrix}}
+% For theorem enviornment
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}
+
+\newtheorem{mathrule}{Rule}
+\newtheorem{case}{Case}
+\newtheorem{subcase}{Case}[case]
+
+\theoremstyle{plain}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}[section]
+
+% For improved end of proof formatting
+\patchcmd{\endproof}  % <cmd>
+  {\endtrivlist}               % <search>
+  {\endtrivlist\par\nobreak\vspace*{\dimexpr-\baselineskip-\parskip}\nobreak\noindent\hrulefill}% <replace>
+  {}{}                            % <succes><failure>
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{PHY 9HC Spring 2016\\ UC Davis - Emilija Pantic} % Top left header
+\chead{} % Top center header
+\rhead{\firstxmark Anze Wang ID: 912777492\\PHY 9HC A02} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+
+\setlength\parindent{10pt} % Removes all indentation from paragraphs
+
+% Common boolean operators.
+\newcommand*\AND{\wedge}
+\newcommand*\OR{\vee}
+\newcommand*\NOT{\neg}
+\newcommand*\IMPLIES{\implies}
+\newcommand*\XOR{\mathbin{\oplus}}
+
+
+\begin{document}
+
+\begin{center} \bf \LARGE Homework 5\\
+\end{center}
+
+
+\begin {enumerate}[itemindent=30pt,label=\bf Exercise {\arabic*}:]
+
+\item Q7M.6\\
+\begin{align*}
+	&\Ket{\psi_{0}} = \Matrix{\sqrt{4/5} \\ \sqrt{1/5}} = \sqrt{4/5}\; \Ket{+z} + \sqrt{1/5} \;\Ket{-z}\\
+	& \Ket{\psi_{t}} = \sqrt{4/5}e^{-iEt/\hbar}\; \Ket{+z} + \sqrt{1/5} \;\Ket{-z}\\
+	&\mid \Braket{+x | \psi_{t}} \mid^2 = \dfrac{2}{5} + \dfrac{1}{5} e^{iEt/\hbar} + \dfrac{1}{5} e^{-iEt/\hbar} + \dfrac{1}{10} = \dfrac{1}{2} + \dfrac{2}{5} cos(Et/\hbar)
+\end{align*}
+\subitem The probability that we will determine this electron's spin to be in the +x direction at time t is $\dfrac{1}{2} + \dfrac{2}{5} cos(Et/\hbar)$
+
+\item Q7D.4\\
+\begin{align*}
+	&\Ket{\psi_{0}} = \Matrix{\sqrt{1/2} \\ \sqrt{1/2}} = \sqrt{1/2}\; \Ket{+z} + \sqrt{1/2} \;\Ket{-z}\\
+	& \Ket{\psi_{t}} = \sqrt{1/2}e^{-iEt/2\hbar}\; \Ket{+z} + \sqrt{1/2}e^{+iEt/2\hbar} \;\Ket{-z}\\
+	&\mid \Braket{+x | \psi_{t}} \mid^2 = \dfrac{1}{4} (e^{iEt/\hbar} + 1 + 1 + e^{-iEt/\hbar}) = \dfrac{1}{2} + \dfrac{1}{2} cos(Et/\hbar)
+\end{align*}
+\subitem The probability is exactly same as we found in text example.
+\item QAM.3\\
+\subitem Because $\Ket{\psi(0)} = \Ket{+x}$, therefore  $\ket{\psi(0)} = \sqrt{1/2}\Ket{+z} + \sqrt{1/2}\Ket{-z}$
+\subitem In this situation, $\ket{\psi(t)} = \sqrt{1/2} e^{-iE_{+}t/\hbar}\Ket{+z} + \sqrt{1/2} e^{-iE_{-}t/\hbar}\Ket{-z}$
+\subitem For $\Braket{x}$ :
+\begin{align*}
+	\Braket{+x \mid \psi(t)} &= \sqrt{1/2} e^{-iE_{+}t/\hbar}\Braket{+x \mid +z} + \sqrt{1/2} e^{-iE_{-}t/\hbar}\Braket{+x \mid -z}\\
+	&= \sqrt{1/2} e^{-iE_{+}t/\hbar}\Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{1 \\ 0}+ \sqrt{1/2} e^{-iE_{-}t/\hbar}\Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{0 \\ 1}\\
+	&= \dfrac{1}{2} e^{-iE_{+}t/\hbar}+ \dfrac{1}{2} e^{-iE_{-}t/\hbar}
+\end{align*}
+\subitem Similarly, $\Braket{-x \mid \psi(t)} = \dfrac{1}{2} e^{-iE_{+}t/\hbar} - \dfrac{1}{2} e^{-iE_{-}t/\hbar}$. Therefore, the probability of these out come is:
+\begin{align*}
+	|\Braket{-x \mid \psi(t)}|^{2} &= (\dfrac{1}{2} e^{-iE_{+}t/\hbar}- \dfrac{1}{2} e^{-iE_{-}t/\hbar})^{*}(\dfrac{1}{2} e^{-iE_{+}t/\hbar}- \dfrac{1}{2} e^{-iE_{-}t/\hbar})\\ 
+	&=(\dfrac{1}{2} e^{iE_{+}t/\hbar} - \dfrac{1}{2} e^{iE_{-}t/\hbar})(\dfrac{1}{2} e^{-iE_{+}t/\hbar}- \dfrac{1}{2} e^{-iE_{-}t/\hbar})\\ 
+	&= \dfrac{1}{2} - \dfrac{1}{4}( e^{i(E_{+} - E_{-})t/\hbar} + e^{i(E_{-} - E_{+})t/\hbar})\\
+	&= \dfrac{1}{2} - \dfrac{1}{2} cos(\omega t)
+\end{align*}
+\begin{align*}
+	|\Braket{+x \mid \psi(t)}|^{2} &= (\dfrac{1}{2} e^{-iE_{+}t/\hbar} + \dfrac{1}{2} e^{-iE_{-}t/\hbar})^{*}(\dfrac{1}{2} e^{-iE_{+}t/\hbar}+ \dfrac{1}{2} e^{-iE_{-}t/\hbar})\\
+	&=\dfrac{1}{2} + \dfrac{1}{2} cos(\omega t)
+\end{align*}
+\subitem The expectation value for $S_{x}$ is:
+\begin{align*}
+	\Braket{S_{x}} &= \dfrac{\hbar}{2}(\dfrac{1}{2} + \dfrac{1}{2} cos(\omega t)) - \dfrac{\hbar}{2}(\dfrac{1}{2} - \dfrac{1}{2} cos(\omega t))\\
+	&= \dfrac{\hbar}{2} cos(\omega t)
+\end{align*}
+\subitem For $\Braket{y}$ :
+\begin{align*}
+	\Braket{+y \mid \psi(t)} &= \sqrt{1/2} e^{-iE_{+}t/\hbar}\Braket{+y \mid +z} + \sqrt{1/2} e^{-iE_{-}t/\hbar}\Braket{+y \mid -z}\\
+	&= \sqrt{1/2} e^{-iE_{+}t/\hbar}\Matrix{\sqrt{1/2} & -i\sqrt{1/2}} \Matrix{1 \\ 0}+ \sqrt{1/2} e^{-iE_{-}t/\hbar}\Matrix{\sqrt{1/2} & -i\sqrt{1/2}} \Matrix{0 \\ 1}\\
+	&= \dfrac{1}{2} e^{-iE_{+}t/\hbar}-i\dfrac{1}{2} e^{-iE_{-}t/\hbar}
+\end{align*}
+\subitem Similarly, $\Braket{-y \mid \psi(t)} = \dfrac{1}{2} e^{-iE_{+}t/\hbar} + \dfrac{1}{2} e^{-iE_{-}t/\hbar}$. Therefore, the probability of these out come is:
+\begin{align*}
+	|\Braket{-y \mid \psi(t)}|^{2} &= (\dfrac{1}{2} e^{-iE_{+}t/\hbar} + i\dfrac{1}{2} e^{-iE_{-}t/\hbar})^{*}(\dfrac{1}{2} e^{-iE_{+}t/\hbar} + i\dfrac{1}{2} e^{-iE_{-}t/\hbar})\\ 
+	&=(\dfrac{1}{2} e^{iE_{+}t/\hbar} - i\dfrac{1}{2} e^{iE_{-}t/\hbar})(\dfrac{1}{2} e^{-iE_{+}t/\hbar} +  i\dfrac{1}{2} e^{-iE_{-}t/\hbar})\\ 
+	&= \dfrac{1}{2} - \dfrac{i}{4}( e^{i(E_{+} - E_{-})t/\hbar} - e^{i(E_{-} - E_{+})t/\hbar})\\
+	&= \dfrac{1}{2} - \dfrac{1}{2} sin(\omega t)
+\end{align*}
+\begin{align*}
+	|\Braket{+y \mid \psi(t)}|^{2} &=(\dfrac{1}{2} e^{-iE_{+}t/\hbar} + \dfrac{1}{2} e^{-iE_{-}t/\hbar})^{*}(\dfrac{1}{2} e^{-iE_{+}t/\hbar} + \dfrac{1}{2} e^{-iE_{-}t/\hbar})\\
+	&=\dfrac{1}{2} + \dfrac{1}{2} sin(\omega t)
+\end{align*}
+\subitem The expectation value for $S_{y}$ is:
+\begin{align*}
+	\Braket{S_{y}} &= \dfrac{\hbar}{2}(\dfrac{1}{2} + \dfrac{1}{2} sin(\omega t)) - \dfrac{\hbar}{2}(\dfrac{1}{2} - \dfrac{1}{2} sin(\omega t))\\
+	&= \dfrac{\hbar}{2} sin(\omega t)
+\end{align*}
+\subitem for $\Braket{S_{z}}$:
+\begin{align*}
+	\Braket{+z \mid \psi(t)} &= \sqrt{1/2} e^{-iE_{+}t/\hbar}\Braket{+z \mid +z} + \sqrt{1/2} e^{-iE_{-}t/\hbar}\Braket{+z \mid -z}\\
+	&=\sqrt{1/2} e^{-iE_{+}t/\hbar}\\
+	\Braket{-z \mid \psi(t)} &= \sqrt{1/2} e^{-iE_{+}t/\hbar}\Braket{-z \mid +z} + \sqrt{1/2} e^{-iE_{-}t/\hbar}\Braket{-z \mid -z}\\
+	&=\sqrt{1/2} e^{-iE_{-}t/\hbar}
+\end{align*}
+\subitem Therefore, we can get the expectation value of $S_{z}$:
+\begin{align*}
+	\Braket{S_{z}} &= \dfrac{\hbar}{2} |\Braket{+z\mid \psi}|^2 - \dfrac{\hbar}{2} |\Braket{-z \mid \psi}|^2\\
+	&=\dfrac{\hbar}{2}
+\end{align*}
+\subitem According to the calculation, we know that the $\Braket{S_{z}}$ is a constant  and $\Braket{S_x}$ and $\Braket{S_y}$ are functions depend on time. We can easily find that S is rotating about z axis on the xy plane. This motion is what we expect in classic model. So this result make sense. 
+\item QAM.6\\
+\subitem Because $\Ket{\psi(0)} = \Matrix{4/5 \\ -3/5}$, therefore  $\ket{\psi(0)} = \dfrac{4}{5}\Ket{+z} + -\dfrac{3}{5}\Ket{-z}$
+\subitem In this situation, $\ket{\psi(t)} = \dfrac{4}{5} e^{-iE_{+}t/\hbar}\Ket{+z} - \dfrac{3}{5} e^{-iE_{-}t/\hbar}\Ket{-z}$
+\subitem For $\Braket{x}$ :
+\begin{align*}
+	\Braket{+x \mid \psi(t)} &= 4/5 e^{-iE_{+}t/\hbar}\Braket{+x \mid +z} - 3/5 e^{-iE_{-}t/\hbar}\Braket{+x \mid -z}\\
+	&= 4/5 e^{-iE_{+}t/\hbar}\Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{1 \\ 0} - 3/5 e^{-iE_{-}t/\hbar}\Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{0 \\ 1}\\
+	&= \dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar}- \dfrac{3}{5\sqrt{2}} e^{-iE_{-}t/\hbar}
+\end{align*}
+\subitem Similarly, $\Braket{-x \mid \psi(t)} = \dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} e^{-iE_{-}t/\hbar}$. Therefore, the probability of these out come is:
+\begin{align*}
+	|\Braket{+x \mid \psi(t)}|^{2} &= (\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar}- \dfrac{3}{5\sqrt{2}} e^{-iE_{-}t/\hbar})^{*}(\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar}- \dfrac{3}{5\sqrt{2}} e^{-iE_{-}t/\hbar})\\ 
+	&=(\dfrac{4}{5\sqrt{2}} e^{iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} e^{iE_{-}t/\hbar})(\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} e^{-iE_{-}t/\hbar})\\  
+	&= \dfrac{1}{50}(16 + 12e^{i(E_{+} - E_{-})t / \hbar} + 12e^{i(E_{-} - E_{+})t / \hbar} + 9)\\
+	&= \dfrac{1}{2} - \dfrac{12}{25} cos(\omega t)
+\end{align*}
+\begin{align*}
+	|\Braket{-x \mid \psi(t)}|^{2} &= (\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar}+ \dfrac{3}{5\sqrt{2}} e^{-iE_{-}t/\hbar})^{*}(\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} e^{-iE_{-}t/\hbar})\\
+	&=\dfrac{1}{2} + \dfrac{12}{25} cos(\omega t)
+\end{align*}
+\subitem The expectation value for $S_{x}$ is:
+\begin{align*}
+	\Braket{S_{x}} &= \dfrac{\hbar}{2}(\dfrac{1}{2} - \dfrac{12}{25} cos(\omega t)) - \dfrac{\hbar}{2}(\dfrac{1}{2} + \dfrac{12}{25} cos(\omega t))\\
+	&= -\dfrac{12}{25} \hbar cos(\omega t)
+\end{align*}
+\subitem For $\Braket{y}$ :
+\begin{align*}
+	\Braket{+y \mid \psi(t)} &= 4/5 e^{-iE_{+}t/\hbar}\Braket{+y \mid +z} -3/5 e^{-iE_{-}t/\hbar}\Braket{+y \mid -z}\\
+	&= 4/5 e^{-iE_{+}t/\hbar}\Matrix{\sqrt{1/2} & -i\sqrt{1/2}} \Matrix{1 \\ 0} - 3/5 e^{-iE_{-}t/\hbar}\Matrix{\sqrt{1/2} & -i\sqrt{1/2}} \Matrix{0 \\ 1}\\
+	&= \dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar}
+\end{align*}
+\newpage
+\subitem Similarly, $\Braket{-y \mid \psi(t)} = \dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} - \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar}$. Therefore, the probability of these out come is:
+\begin{align*}
+	|\Braket{-y \mid \psi(t)}|^{2} &= (\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} - \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar})^{*}(\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} - \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar})\\ 
+	&=(\dfrac{4}{5\sqrt{2}} e^{iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar})(\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} - \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar})\\ 
+	&= \dfrac{1}{2} + \dfrac{12}{25}i( e^{i(E_{+} - E_{-})t/\hbar} - e^{i(E_{-} - E_{+})t/\hbar})\\
+	&= \dfrac{1}{2} + \dfrac{12}{25} sin(\omega t)
+\end{align*}
+\begin{align*}
+	|\Braket{+y \mid \psi(t)}|^{2} &=(\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar})^{*}(\dfrac{4}{5\sqrt{2}} e^{-iE_{+}t/\hbar} + \dfrac{3}{5\sqrt{2}} i e^{-iE_{-}t/\hbar})\\
+	&=\dfrac{1}{2} - \dfrac{12}{25} sin(\omega t)
+\end{align*}
+\subitem The expectation value for $S_{y}$ is:
+\begin{align*}
+	\Braket{S_{y}} &= \dfrac{\hbar}{2}(\dfrac{1}{2} - \dfrac{12}{25} sin(\omega t)) - \dfrac{\hbar}{2}(\dfrac{1}{2} - \dfrac{12}{25} sin(\omega t))\\
+	&= -\dfrac{12}{25} \hbar sin(\omega t)
+\end{align*}
+\subitem for $\Braket{S_{z}}$:
+\begin{align*}
+	\Braket{+z \mid \psi(t)} &= 4/5 e^{-iE_{+}t/\hbar}\Braket{+z \mid +z} -3/5 e^{-iE_{-}t/\hbar}\Braket{+z \mid -z}\\
+	&=4/5 e^{-iE_{+}t/\hbar}\\
+	\Braket{-z \mid \psi(t)} &= 4/5 e^{-iE_{+}t/\hbar}\Braket{-z \mid +z} -3/5 e^{-iE_{-}t/\hbar}\Braket{-z \mid -z}\\
+	&=-3/5 e^{-iE_{-}t/\hbar}
+\end{align*}
+\subitem Therefore, we can get the expectation value of $S_{z}$:
+\begin{align*}
+	\Braket{S_{z}} &= \dfrac{\hbar}{2} |\Braket{+z\mid \psi}|^2 - \dfrac{\hbar}{2} |\Braket{-z \mid \psi}|^2\\
+	&=\dfrac{7}{50}\hbar
+\end{align*}
+\subitem According to the calculation, we know that the $\Braket{S_{z}}$ is a constant  and $\Braket{S_x}$ and $\Braket{S_y}$ are functions depend on time. We can easily find that S is rotating about z axis on the xy plane. This motion is what we expect in classic model. So this result make sense. 
+\item QAD.5\\
+\subitem According to the time evolution rule, we can assume that the energy eigenvector $\Ket{\psi_{n}} = c_{n}e^{-iE_{n}t/\hbar}\Ket{E_{n}}$, and we have a observable $\Ket{k}$.
+\subitem so the probability is :
+\begin{align*}
+	&|\Braket{k\mid \psi_{n}}|^2 \\
+	=&|\Braket{k\mid E_{n}}e^{-iE_{n}t/\hbar}|^2 \\
+	=&(\Braket{k\mid E_{n}}^{*}c_{n}e^{iE_{n}t/\hbar})(\Braket{k\mid eE_{n}}c_{n}e^{-iE_{n}t/\hbar})\\
+	=&c_{n}^{2}(\Braket{k\mid E_{n}}^{*})(\Braket{k\mid E_{n}})
+\end{align*}
+\subitem Because the probability does not depend on time, a energy eigenvector is a stationary state.
+\end{enumerate}
+\end{document}
+ 

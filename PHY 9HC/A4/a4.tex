@@ -1,0 +1,228 @@
+% A useful template for typesetting beautiful homework solutions. 
+% Also check out Professor Matloff's guide: 
+% http://heather.cs.ucdavis.edu/~matloff/LaTeX/HowToCreate.html.
+\documentclass{article}
+
+% Packages Used
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{comment}  % Used for multi-line commenting
+\usepackage{booktabs} % For better looking tables
+\usepackage{array}       % for better arrays (eg matrices) in maths
+\usepackage{paralist}    % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim}  % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig}      % make it possible to include more than one captioned figure/table in a single float
+\usepackage{amsthm}   % make proofs look better
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{eufrak}      % for fraktur fonts
+\usepackage{mathabx}  % for \divides
+\usepackage{enumerate} % to get lists enumerated with letters
+\usepackage{hyperref}  % to get attractive URLs
+\usepackage{bussproofs} % for setting proofs
+\usepackage{etoolbox}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{slashed}
+\usepackage{braket}
+\newcommand{\Intvalx}[2]{\mspace{-1mu}\left.\rule[0pt]{0pt}{\IntHtx}\right|_{\,#1}^{\,#2}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\providecommand{\bigp}[1]{\bigg( #1 \bigg)}
+\providecommand{\Matrix}[1] {\begin{bmatrix} #1 \end{bmatrix}}
+% For theorem enviornment
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}
+
+\newtheorem{mathrule}{Rule}
+\newtheorem{case}{Case}
+\newtheorem{subcase}{Case}[case]
+
+\theoremstyle{plain}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}[section]
+
+% For improved end of proof formatting
+\patchcmd{\endproof}  % <cmd>
+  {\endtrivlist}               % <search>
+  {\endtrivlist\par\nobreak\vspace*{\dimexpr-\baselineskip-\parskip}\nobreak\noindent\hrulefill}% <replace>
+  {}{}                            % <succes><failure>
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{PHY 9HC Spring 2016\\ UC Davis - Emilija Pantic} % Top left header
+\chead{} % Top center header
+\rhead{\firstxmark Anze Wang ID: 912777492\\PHY 9HC A02} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+
+\setlength\parindent{10pt} % Removes all indentation from paragraphs
+
+% Common boolean operators.
+\newcommand*\AND{\wedge}
+\newcommand*\OR{\vee}
+\newcommand*\NOT{\neg}
+\newcommand*\IMPLIES{\implies}
+\newcommand*\XOR{\mathbin{\oplus}}
+
+
+\begin{document}
+
+\begin{center} \bf \LARGE Homework 4\\
+\end{center}
+
+
+\begin {enumerate}[itemindent=30pt,label=\bf Exercise {\arabic*}:]
+
+\item Q6D.1\\
+\begin{align*}
+	&|\vec{S}| = I \omega = \dfrac{2}{5} m r^{2} \omega = \dfrac{1}{2} \hbar \\
+	&\omega = \dfrac{5 \hbar}{4 m r^{2}} \\
+	&v = \omega * r =   \dfrac{5 \hbar}{4 m r} \\
+	&\;\; = 1.449*10^{11} m/s
+\end{align*}
+\subitem Because the speed of light is $3*10^{8} m/s$, $1.449*10^{11}m/s$ is much faster than the speed of light.
+\item R6R.1\\
+\begin{align*}
+	I\omega =  \dfrac{1}{2} \dfrac{M}{m_{Fe}} \cdot N_{A} \hbar
+\end{align*}
+\subitem where as 
+\begin{align*}
+	\omega &=  \dfrac{1}{2} \dfrac{M}{m} \cdot N_{A} \hbar \cdot \dfrac{2}{Mr^{2}}\\
+		   &= \dfrac{N_{A} \hbar}{mr^{2}}\\
+		   &= \dfrac{(6.02*10^23 * 1.055*10^-34)}{56 *10 ^{-3} *  0.01^{2}}\\
+		   &= 1.134 * 10^{-5} s^{-1} 
+\end{align*}
+\subitem so the period is 
+\begin{align*}
+	T &= \dfrac{2\pi}{\omega} \\
+	  &= 554073\;s
+\end{align*}
+\item Q7R.2 \\
+\subitem assume that $\Ket{\psi} = \Matrix{a \\ b}$ 
+\subitem According to the question, we can get following equation:
+\begin{eqnarray*}     
+\left\{                        
+\begin{array}{lll}       
+	|\Braket{+\theta \mid \psi}|^2 &=& \dfrac{16}{25} \\  
+	|\Braket{-\theta \mid \psi}|^2 &=& \dfrac{9}{25} \\  
+\end{array}
+\right.                       
+\end{eqnarray*}        
+\subitem By solving this equation, we can easily get that
+	$$ \Ket{\psi} = \Matrix{0 \\ \pm 1} \quad \mathrm{or} \quad \Matrix{\pm 24/25 \\ \pm 7/25}$$
+\subitem So it has two distinct p values.\\
+
+\subitem By sending the electron to the $SG_{x}$, we can get another equation.    
+	$$|\Braket{+x \mid \psi}|^2 = 0.77$$
+\subitem According to this set of equations, we can get know that 
+\begin{align*}
+	&\dfrac{1}{2}(a^2 + b^2) = 0.77\\
+	&ab = 0.27
+\end{align*} 
+\subitem Because $1 \cdot 0 = 0$, $\dfrac{24}{25} \cdot \dfrac{7}{25} = 0.27$, we can conclude that $a = \pm 24/25, b = \pm 7/25$ 
+\item Q7R.3 \\
+\subitem For each path
+\begin{align*}
+	 &\Braket{+x|-x} \Braket{-x|+z} \Braket{+z|+x} \\
+    =& \bigg( \begin{bmatrix} \sqrt{1/2} & \sqrt{1/2} \end{bmatrix} \begin{bmatrix} \sqrt{1/2}\\ -\sqrt{1/2} \end{bmatrix} \bigg) \bigg( \begin{bmatrix} \sqrt{1/2} & -\sqrt{1/2} \end{bmatrix} \begin{bmatrix} 1\\0 \end{bmatrix} \bigg)\bigg( \begin{bmatrix} 1 & 0 \end{bmatrix} \begin{bmatrix} \sqrt{1/2} \\ \sqrt{1/2} \end{bmatrix} \bigg)\\
+    =&0
+\end{align*}
+\begin{align*}
+	&\Braket{+x|+x} \Braket{+x|-z} \Braket{-z|+x}\\
+   =&\bigp{ \Matrix{ \sqrt{1/2} & \sqrt{1/2}} \Matrix{ \sqrt{1/2}\\ \sqrt{1/2}}} \bigp{ \Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{0\\1}} \bigp{\Matrix{0 & 1} \Matrix{\sqrt{1/2} \\ \sqrt{1/2}}}\\
+   =& \dfrac{1}{2} 
+\end{align*}
+\begin{align*}
+	&\Braket{-x|+x} \Braket{+x|-z} \Braket{-z|+x}\\
+   =&\bigp{ \Matrix{ \sqrt{1/2} & -\sqrt{1/2}} \Matrix{ \sqrt{1/2}\\ \sqrt{1/2}}} \bigp{ \Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{0\\1}} \bigp{\Matrix{0 & 1} \Matrix{\sqrt{1/2} \\ \sqrt{1/2}}}\\
+   =& 0
+\end{align*}
+\begin{align*}
+	&\Braket{-x|-x} \Braket{-x|-z} \Braket{-z|+x}\\
+   =&\bigp{ \Matrix{ \sqrt{1/2} & -\sqrt{1/2}} \Matrix{ \sqrt{1/2}\\ -\sqrt{1/2}}} \bigp{ \Matrix{\sqrt{1/2} & -\sqrt{1/2}} \Matrix{0\\1}} \bigp{\Matrix{0 & 1} \Matrix{\sqrt{1/2} \\ \sqrt{1/2}}}\\
+   =& \dfrac{1}{2} 
+\end{align*}
+\subitem the total amplitude of $\Ket{+x}$ is $\dfrac{1}{2} + 0 = \dfrac{1}{2}$, and the total amplitude of $\Ket{-x}$ is $\dfrac{1}{2} + 0 = \dfrac{1}{2}$.
+\subitem The two wave,which are not orthogonal interference with each other, which cause the elimination of part of amplitude. So the total probability should be less than 1. It just likes the double slit interference of light. After go through the slits, the total intensity of light is less than before.
+\item QAM.2
+\subitem (a)
+\subitem \qquad for each path go through the $\Ket{+\theta}$
+\begin{align*}
+	 &\Braket{+\theta \mid +y} \Braket{+y \mid +z}\\
+	=&\bigp{\Matrix{cos(\theta / 2) & sin(\theta / 2)} \Matrix{\sqrt{1/2} \\ \sqrt{1/2}}} \bigp{\Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{ 1 \\ 0}}\\
+	=&\dfrac{1}{2} (cos(\theta/2) + sin(\theta/2))\\ \\
+	 &\Braket{+\theta \mid -y} \Braket{-y \mid +z}\\
+	=&\bigp{\Matrix{cos(\theta / 2) & sin(\theta / 2)} \Matrix{\sqrt{1/2} \\ -\sqrt{1/2}}} \bigp{\Matrix{\sqrt{1/2} & -\sqrt{1/2}} \Matrix{ 1 \\ 0}}\\
+	=&\dfrac{1}{2} (cos(\theta/2) - sin(\theta/2))\\
+\end{align*}
+\subitem  Then we can get the total amplitude:
+	$$\Braket{+\theta \mid +y} \Braket{+y \mid +z} + \Braket{+\theta \mid -y} \Braket{-y \mid +z} = cos(\theta / 2)$$
+\subitem So the probability is $cos^2(\theta / 2)$ \\
+\subitem (b) The input was divided in to two part by $SG_{y}$, and then add up in the tube. So we can ignore the $SG_{y}$ because it does nothing. So the probability state $\Ket{+\theta}$ can be write as 
+$$|\Braket{+\theta \mid +z}|^{2} = cos^{2} (\theta/2)$$ 
+\subitem (C)
+\begin{align*}
+	P &= |\Braket{+\theta \mid +y} \Braket{+y \mid +z}|^{2}\\
+	&=\bigg|\bigp{\Matrix{cos(\theta / 2) & sin(\theta / 2)} \Matrix{\sqrt{1/2} \\ \sqrt{1/2}}} \bigp{\Matrix{\sqrt{1/2} & \sqrt{1/2}} \Matrix{ 1 \\ 0}}\bigg|^{2}\\
+	&=|\dfrac{1}{2} (cos(\theta/2) + sin(\theta/2))|^{2}\\
+	&=\dfrac{1}{4} (1 + sin(\theta))
+\end{align*}
+\subitem (D) Because part of the information was blocked, the total probability or intensity must less than 1, which is agrees the answer we get.
+
+\subitem 
+\item .\\Find the Fourier exponential series (discussed during Lec 8) for the periodic function defined as $f(x)=Ax$ for $−L/2\leq x \leq L/2$. Check the orthogonality of complex exponential basis functions. Express Fourier exponential series in terms of Fourier trigonometric series (sines and cosines) and see if it agrees with what we showed in Lec 2.
+\begin{align*}
+	C_{n} &= \dfrac{1}{L}\int_{-L/2}^{L/2} Ax e^{\dfrac{-2i \pi n x}{L}}\;\mathrm{d}x \\
+		  &= A e^{\dfrac{-2i \pi n x}{L}} \bigp{ \dfrac{L}{4 \pi^{2} n^{2}}  + \dfrac{ix}{2\pi n}} \;\bigg|_{-L/2}^{L/2}\\
+		  &= \dfrac{ALi}{4\pi^{2} n^{2}} \big( e^{-i\pi n} - e^{i\pi n} \big) + \dfrac{ALi}{4 \pi n} \big( e^{-i\pi n} + e^{i\pi n} \big) \\
+		  &= \dfrac{ALi}{2n\pi} (-1)^{n} \\
+	\therefore f(x) &= \sum \limits_{n = - \infty}^{\infty} \dfrac{ALi}{2n\pi} (-1)^{n}  e^{\dfrac{2i\pi n x}{L}} 
+\end{align*}
+\begin{align*}
+	&\quad\;C_{n}e^{\dfrac{2i\pi n x}{L}} + C_{-n}e^{-\dfrac{2i\pi n x}{L}} \\
+	&=\dfrac{ALi}{2n\pi} (-1)^{n} e^{\dfrac{2i\pi n x}{L}} - \dfrac{ALi}{2n\pi} (-1)^{-n} e^{-\dfrac{2i\pi n x}{L}}\\
+	&=-\dfrac{AL}{n\pi} (-1)^{n} sin \bigp{\dfrac{2n\pi x}{L}}
+\end{align*}
+\subitem Because the Ax goes through (0,0), $C_{0} = 0$. Therefore, $ f(x) = \sum \limits_{n = 1}^{\infty} -\dfrac{AL}{n\pi} (-1)^{n} sin \bigp{\dfrac{2n\pi x}{L}}$, which is agree with what we get in lecture 2.\\
+\subitem Check orthogonality:
+\subitem Because $2\pi / L$ is constant, let $k = 2\pi / L$. So 
+$e^{\dfrac{2i\pi n x}{L}} = e^{ikn}$. if $m \neq n$, we can get:
+\begin{align*}
+	\Braket{e^{ikn}, e^{ikm}} &= \int_{-L/2}^{L/2} e^{-ikn}e^{ikm}\; \mathrm{d}x\\
+	&= \dfrac{1}{ikm - ikn} e^{(ikm - ikn)x}\; \bigg|_{-L/2}^{L/2}\\
+	&= \dfrac{i}{kn-km} 2 i sin(\pi(m-n))\\
+	&= 0
+\end{align*}
+\subitem if $m = n$, we can get:
+\begin{align*}
+	\Braket{e^{ikn}, e^{ikn}} &= \int_{-L/2}^{L/2} e^{-ikn}e^{ikn}\; \mathrm{d}x\\
+	&= \int_{-L/2}^{L/2} 1; \mathrm{d}x\\
+	&= L
+\end{align*}
+\subitem if $n \neq m$, $\Braket{e^{ikn}, e^{ikm}} = 0$; if $n = m$, $\Braket{e^{ikn}, e^{ikm}} \neq 0$. So $e^{ikn}$ is orthogonal.
+\subitem $\Bra{\psi_{n}}$
+\end{enumerate}
+\end{document}
+ 
